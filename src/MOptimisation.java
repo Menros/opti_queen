@@ -51,6 +51,18 @@ public abstract class MOptimisation {
         return f;
     }
 
+    private ArrayList<ArrayList<Integer>> voisins(){
+        ArrayList<ArrayList<Integer>> vois = new ArrayList<>();
+
+        for (int i = 0; i < this.size; i++){
+            for (int j = i+1; j < this.size; j++){
+                vois.add(voisin(i,j));
+            }
+        }
+
+        return vois;
+    }
+
     private ArrayList<Integer> voisin(int i, int j){
         ArrayList<Integer> v = queens;
         v.set(i, queens.get(j));
