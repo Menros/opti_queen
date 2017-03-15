@@ -1,5 +1,5 @@
-# Projet - Problème des n-dames
 ###### PRIEUR-DREVON Thomas - GONDRAS Pierre-Louis
+# Projet - Problème des n-dames
 
 ## Ensemble
 - Tout : n<sup>n</sup> solutions
@@ -25,6 +25,6 @@ Conflit si :
 **Les reines sont sur une diagonale de l'échiquier**
 
 ## Méthodes
- 1/ Méthode Tabou
- 2/ Méthode du recuit simulé
+ **1/ Méthode Tabou**\
+ **2/ Méthode du recuit simulé**
  
