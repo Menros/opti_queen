@@ -23,15 +23,15 @@ public abstract class MOptimisation {
         return qMin;
     }
 
-    public MOptimisation() {
-        this(8,50);
+    public MOptimisation(ArrayList<Integer> queens) {
+        this(8,50, queens);
     }
 
-    public MOptimisation(int size, int iterationMax) {
+    public MOptimisation(int size, int iterationMax, ArrayList<Integer> queens) {
         this.size = size;
         this.iteration = 0;
         this.iterationMax = iterationMax;
-        this.queens = new ArrayList<>(size);
+        this.queens = queens;
         this.fMin = this.fitness();
         this.qMin = this.queens;
     }
