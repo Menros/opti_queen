@@ -70,6 +70,42 @@ public abstract class MOptimisation {
         return v;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setIteration(int iteration) {
+        this.iteration = iteration;
+    }
+
+    public int getIterationMax() {
+        return iterationMax;
+    }
+
+    public void setIterationMax(int iterationMax) {
+        this.iterationMax = iterationMax;
+    }
+
+    public ArrayList<Integer> getQueens() {
+        return queens;
+    }
+
+    public void setQueens(ArrayList<Integer> queens) {
+        this.queens = queens;
+    }
+
+    public void setfMin(int fMin) {
+        this.fMin = fMin;
+    }
+
+    public void setqMin(ArrayList<Integer> qMin) {
+        this.qMin = qMin;
+    }
+
     public void optimisation(){
 
     }
