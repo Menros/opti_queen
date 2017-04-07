@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by menros on 15/03/17.
@@ -22,6 +23,8 @@ public abstract class MOptimisation {
     public ArrayList<Integer> getqMin() {
         return qMin;
     }
+
+    public MOptimisation(){this(new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7)));}
 
     public MOptimisation(ArrayList<Integer> queens) {
         this(8,50, queens);
@@ -65,8 +68,10 @@ public abstract class MOptimisation {
 
     protected ArrayList<Integer> voisin(int i, int j){
         ArrayList<Integer> v = queens;
-        v.set(i, queens.get(j));
-        v.set(i, queens.get(j));
+        int iVal = queens.get(i);
+        int jVal = queens.get(j);
+        v.set(i, jVal);
+        v.set(j, iVal);
         return v;
     }
 
