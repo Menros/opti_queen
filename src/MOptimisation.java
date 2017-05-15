@@ -67,7 +67,7 @@ public abstract class MOptimisation {
     }
 
     protected ArrayList<Integer> voisin(int i, int j){
-        ArrayList<Integer> v = queens;
+        ArrayList<Integer> v = new ArrayList<>(queens);
         int iVal = queens.get(i);
         int jVal = queens.get(j);
         v.set(i, jVal);

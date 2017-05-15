@@ -73,9 +73,10 @@ public class Tabou extends MOptimisation {
                 newQ = this.voisin(C.get(0).getVal1(),C.get(0).getVal2());
                 newF = this.fitness(newQ);
                 c = C.get(0);
-                for (int i = 1; i < C.size(); i++){
+                for (int i = 0; i < C.size(); i++){
                     voisin = this.voisin(C.get(i).getVal1(),C.get(i).getVal2());
-                    System.out.println(voisin);
+//                    System.out.println(this.getQueens());
+                    System.out.println(C.get(i).getVal1() +" "+ C.get(i).getVal2() +" "+ voisin);
                     if (this.fitness(voisin) < newF){
                         newQ = voisin;
                         newF = this.fitness(newQ);

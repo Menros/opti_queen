@@ -13,8 +13,8 @@ public class Contexte {
     }
 
     public static void main(String[] args) {
-       Tabou tabou = new Tabou(4, 1000000000, 3,
-                new ArrayList<Integer>(Arrays.asList(0,1,2,3)));
+       Tabou tabou = new Tabou(8, 1000000000, 3,
+                new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7)));
         tabou.opimisation();
         System.out.println(tabou.getfMin());
         System.out.println((tabou.getQueens()));
