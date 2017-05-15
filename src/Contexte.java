@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by Silver on 15-Mar-17.
  */
@@ -10,7 +13,11 @@ public class Contexte {
     }
 
     public static void main(String[] args) {
+       Tabou tabou = new Tabou(4, 1000000000, 3,
+                new ArrayList<Integer>(Arrays.asList(0,1,2,3)));
+        tabou.opimisation();
+        System.out.println(tabou.getfMin());
+        System.out.println((tabou.getQueens()));
 
     }
-
 }
