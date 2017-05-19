@@ -32,19 +32,26 @@ public class Contexte {
 //    }
 
     public static void main(String[] args) {
-        int n = 10;
-        ArrayList<Integer> queens = new ArrayList<>();
-        for (int i = 0; i < n; i++){
-            queens.add(i);
-        }
-        RecuitSimule recuit = new RecuitSimule(n, queens, n*2, n*8, 1, 0.1);
-        System.out.println(recuit.getQueens());
+            int n = 100;
+            int fitness = 0;
+            ArrayList<Integer> queens = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                queens.add(i);
+            }
         long timeStart = System.nanoTime();
-        recuit.optimisation();
+//        for(int z = 0 ; z < 100 ; z++){
+            RecuitSimule recuit = new RecuitSimule(n, queens, n * 2, n * 8, 1, 0.1);
+            System.out.println(recuit.getQueens());
+            System.out.println("Fitness début : " + recuit.getfMin());
+            recuit.optimisation();
+            System.out.println(recuit.getIteration() + " itérations");
+            System.out.println("Solution finale : " + recuit.getqMin());
+            System.out.println("Fitness min : " + recuit.getfMin());
+            System.out.println("");
+            fitness+= recuit.getfMin();
+//        }
         long timeEnd = System.nanoTime();
-        System.out.println(recuit.getIteration() + " itérations");
-        System.out.println(Math.round((timeEnd - timeStart)*Math.pow(10, -6)) +"ms");
-        System.out.println("Solution finale : " + recuit.getqMin());
-        System.out.println("Fitness min : " + recuit.getfMin());
+        System.out.println(Math.round((timeEnd - timeStart) * Math.pow(10, -6)) + "ms");
+        System.out.println("Fitness somme : " + fitness);
     }
 }
