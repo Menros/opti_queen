@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Silver on 15-Mar-17.
@@ -13,11 +14,20 @@ public class Contexte {
     }
 
     public static void main(String[] args) {
-       Tabou tabou = new Tabou(8, 1000000000, 3,
-                new ArrayList<Integer>(Arrays.asList(0,1,2,3,4,5,6,7)));
+        int n = 100;
+        ArrayList<Integer> queens = new ArrayList<>();
+        for (int i = 0; i < n; i++){
+            queens.add(i);
+        }
+        Tabou tabou = new Tabou(n, 1000000000, n, queens);
+        System.out.println(tabou.getQueens());
+        long timeStart = System.nanoTime();
         tabou.opimisation();
+        long timeEnd = System.nanoTime();
+        System.out.println(tabou.getIteration() + " itérations");
+        System.out.println(Math.round((timeEnd - timeStart)*Math.pow(10, -6)) +"ms");
+//        System.out.println(Math.round((timeEnd - timeStart)*Math.pow(10, -9)) +"s");
+        System.out.println(tabou.getqMin());
         System.out.println(tabou.getfMin());
-        System.out.println((tabou.getQueens()));
-
     }
 }

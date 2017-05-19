@@ -55,7 +55,7 @@ public class Tabou extends MOptimisation {
         Couple c;
 
         do{
-            System.out.println("\n"+ this.getQueens()+"\n");
+//            System.out.println("\n"+ this.getQueens()+"\n");
 //            System.out.println(this.getqMin());
 //            System.out.println(this.getfMin() +"\n");
             for (int i = 0; i < getSize(); i++){
@@ -76,7 +76,7 @@ public class Tabou extends MOptimisation {
                 for (int i = 0; i < C.size(); i++){
                     voisin = this.voisin(C.get(i).getVal1(),C.get(i).getVal2());
 //                    System.out.println(this.getQueens());
-                    System.out.println(C.get(i).getVal1() +" "+ C.get(i).getVal2() +" "+ voisin);
+//                    System.out.println(C.get(i).getVal1() +" "+ C.get(i).getVal2() +" "+ voisin);
                     if (this.fitness(voisin) < newF){
                         newQ = voisin;
                         newF = this.fitness(newQ);
@@ -98,7 +98,11 @@ public class Tabou extends MOptimisation {
                 }
                 this.setQueens(newQ);
             }
-            this.setIteration(this.getIteration() + 1);
+            int iter = this.getIteration() +1;
+            this.setIteration(iter);
+            if (iter%100 == 0){
+                System.out.println(iter + " " + this.getfMin());
+            }
 //            System.out.println((C.size()));
 //            System.out.println(this.getIteration());
 //            System.out.println(this.getfMin());
