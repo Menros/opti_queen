@@ -48,9 +48,12 @@ public class RecuitSimule extends MOptimisation {
                     rand = (int) (Math.random());
                     if(rand < Math.exp(-differenceFitness/this.temperature))
                         this.setQueens(voisin);
+                    else this.setQueens(this.getQueens());
                 }
+                this.setIteration(this.getIteration() + 1);
             }
+            this.temperature = this.gamma * this.temperature;
         }
+//        System.out.println(this.getqMin());
     }
-
 }
