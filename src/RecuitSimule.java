@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Silver on 15-Mar-17.
@@ -26,13 +27,11 @@ public class RecuitSimule extends MOptimisation {
         ArrayList<Integer> voisin;
         int differenceFitness;
         int fitnessVoisin;
-        int rand;
+        Random rand = new Random();
 
         for(int k = 0 ; k <= this.maxNbTemperatures ; k++){
             for(int l = 1 ; l <= this.iterationMaxTemperature ; l++){
-                voisins = this.voisins();
-                rand = (int) (Math.random() * voisins.size());
-                voisin = voisins.get(rand);
+                voisin = this.getRandomVoisin();
 
                 fitnessVoisin = this.fitness(voisin);
                 differenceFitness = fitnessVoisin - fitness();
@@ -42,15 +41,17 @@ public class RecuitSimule extends MOptimisation {
                     if(fitnessVoisin < this.getfMin()){
                         this.setfMin(fitnessVoisin);
                         this.setqMin(voisin);
+                        if(getfMin() == 0) return;
                     }
                 }
                 else{
-                    rand = (int) (Math.random());
-                    if(rand < Math.exp(-differenceFitness/this.temperature))
+                    if(rand.nextInt(1) < Math.exp(-differenceFitness/this.temperature))
                         this.setQueens(voisin);
+                    else this.setQueens(this.getQueens());
                 }
+                this.setIteration(this.getIteration() + 1);
             }
+            this.temperature = this.gamma * this.temperature;
         }
     }
-
 }
