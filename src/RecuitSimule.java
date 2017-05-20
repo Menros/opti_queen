@@ -10,10 +10,6 @@ public class RecuitSimule extends MOptimisation {
     private double gamma;
     private double temperature;
 
-    public RecuitSimule(int size, ArrayList<Integer> queens, int mnt, int imt, double temperature){
-        this(size, queens, mnt, imt, temperature, 0.95);
-    }
-
     public RecuitSimule(int size, ArrayList<Integer> queens, int mnt, int imt, double temperature, double gamma){
         super(size, mnt*imt, queens);
         this.iterationMaxTemperature = imt;
@@ -23,7 +19,6 @@ public class RecuitSimule extends MOptimisation {
     }
 
     public void optimisation(){
-        ArrayList<ArrayList<Integer>> voisins;
         ArrayList<Integer> voisin;
         int differenceFitness;
         int fitnessVoisin;
