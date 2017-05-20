@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by menros on 15/03/17.
@@ -64,6 +65,11 @@ public abstract class MOptimisation {
         }
 
         return vois;
+    }
+
+    protected ArrayList<Integer> getRandomVoisin(){
+        Random rand = new Random();
+        return voisin(rand.nextInt(this.size), rand.nextInt(this.size));
     }
 
     protected ArrayList<Integer> voisin(int i, int j){
