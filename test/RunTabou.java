@@ -10,7 +10,7 @@ public class RunTabou {
         for (int i = 0; i < n; i++){
             queens.add(i);
         }
-        Tabou tabou = new Tabou(n, 1000000000, 5, queens);
+        Tabou tabou = new Tabou(n, 1000000000, n, queens);
         System.out.println(tabou.getQueens());
         long timeStart = System.nanoTime();
         tabou.optimisation();

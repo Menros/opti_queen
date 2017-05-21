@@ -86,7 +86,7 @@ public class Tabou extends MOptimisation {
                     }
                 }
 
-                if (newF > this.getfMin()){
+                if (newF >= this.getfMin()){
                     T.add(c);
                     if (T.size() > Tsize)
                         T.remove(0);
@@ -100,8 +100,8 @@ public class Tabou extends MOptimisation {
             }
             int iter = this.getIteration() +1;
             this.setIteration(iter);
-            if (iter%100 == 0){
-                System.out.println(iter + " " + this.getfMin());
+            if (iter%1 == 0){
+                System.out.println(iter + " " + this.getfMin() + " " + this.fitness() + this.getQueens());
             }
 //            System.out.println((C.size()));
 //            System.out.println(this.getIteration());
