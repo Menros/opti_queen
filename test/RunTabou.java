@@ -5,12 +5,12 @@ import java.util.ArrayList;
  */
 public class RunTabou {
     public static void main(String[] args) {
-        int n = 10;
+        int n = 16;
         ArrayList<Integer> queens = new ArrayList<>();
         for (int i = 0; i < n; i++){
             queens.add(i);
         }
-        Tabou tabou = new Tabou(n, 1000000000, n, queens);
+        Tabou tabou = new Tabou(n, 1000000000, 5, queens);
         System.out.println(tabou.getQueens());
         long timeStart = System.nanoTime();
         tabou.optimisation();

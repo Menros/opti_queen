@@ -65,6 +65,8 @@ public class Genetique extends MOptimisation {
             }
             solutions = newSolutions;
             setMinGen();
+            this.setIteration(this.getIteration() + 1);
+            System.out.println(getIteration() + " " + getfMin() + " " + getqMin());
 
         }while ((this.getIteration() < this.getIterationMax()) && (this.getfMin() > 0));
     }
