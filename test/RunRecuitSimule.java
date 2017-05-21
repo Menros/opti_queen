@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,9 +7,9 @@ import java.util.Date;
  */
 public class RunRecuitSimule {
     public static void main(String[] args) {
-        int n = 100;
+        int n = 20;
         int n1 = n*2;
-        int n2 = n*8;
+        int n2 = 30;
         int temperatureInitiale = 1;
         double gamma = 0.1;
         ArrayList<Integer> queens = new ArrayList<>();
@@ -24,52 +22,25 @@ public class RunRecuitSimule {
 
         System.out.println("-------------- Algorithm Recuit Simulé --------------");
 
-//        long timeStart = System.currentTimeMillis();
-//        for(int z = 0 ; z < nbTests ; z++){
-//            RecuitSimule recuit = new RecuitSimule(n, queens, n1, n2, temperatureInitiale, gamma);
-//            System.out.println(recuit.getQueens());
-//            System.out.println("Fitness début : " + recuit.getfMin());
-//            recuit.optimisation();
-//            System.out.println(recuit.getIteration() + " itérations");
-//            System.out.println("Solution finale : " + recuit.getqMin());
-//            System.out.println("Fitness min : " + recuit.getfMin());
-//            System.out.println("");
-//            fitness+= recuit.getfMin();
-//        }
-//        long timeEnd = System.currentTimeMillis();
-//
-//        Date date = new Date(timeEnd - timeStart);
-//        Calendar cal = Calendar.getInstance();
-//        cal.setTime(date);
-//        System.out.println("Temps d'exécution : " + cal.get(Calendar.MINUTE) + " min " + cal.get(Calendar.SECOND) + " s " + cal.get(Calendar.MILLISECOND) + " ms");
-//
-//        System.out.println("Somme fitness : " + fitness);
-
-
-        long timeStart = 0;
-        long timeEnd = 0;
-        long time = 0;
-        try{
-            PrintWriter writer = new PrintWriter("test.csv", "UTF-8");
-            for(n = 1 ; n <= 1001 ; n+=10){
-                queens = new ArrayList<>();
-                for (int i = 0; i < n; i++) {
-                    queens.add(i);
-                }
-                timeStart = System.currentTimeMillis();
-                RecuitSimule recuit = new RecuitSimule(n, queens, n1, n2, temperatureInitiale, gamma);
-                System.out.println("n = " + n);
-                recuit.optimisation();
-                fitness+= recuit.getfMin();
-                timeEnd = System.currentTimeMillis();
-                time = (timeEnd - timeStart);
-                System.out.println("time = " + time);
-                writer.println(n + ";" + time + ";" + recuit.getfMin());
-                System.out.println("");
-            }
-            writer.close();
-        } catch (IOException e) {
-            // do something
+        long timeStart = System.currentTimeMillis();
+        for(int z = 0 ; z < nbTests ; z++){
+            RecuitSimule recuit = new RecuitSimule(n, queens, n1, n2, temperatureInitiale, gamma);
+            System.out.println(recuit.getQueens());
+            System.out.println("Fitness début : " + recuit.getfMin());
+            recuit.optimisation();
+            System.out.println(recuit.getIteration() + " itérations");
+            System.out.println("Solution finale : " + recuit.getqMin());
+            System.out.println("Fitness min : " + recuit.getfMin());
+            System.out.println("");
+            fitness+= recuit.getfMin();
         }
+        long timeEnd = System.currentTimeMillis();
+
+        Date date = new Date(timeEnd - timeStart);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        System.out.println("Temps d'exécution : " + cal.get(Calendar.MINUTE) + " min " + cal.get(Calendar.SECOND) + " s " + cal.get(Calendar.MILLISECOND) + " ms");
+
+        System.out.println("Somme fitness : " + fitness);
     }
 }

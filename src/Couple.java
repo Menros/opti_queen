@@ -17,4 +17,8 @@ public class Couple {
     public int getVal2() {
         return val2;
     }
+
+    public boolean equals(Couple cpl) {
+        return (this.val1 == cpl.getVal1() && this.val2 == cpl.getVal2());
+    }
 }
