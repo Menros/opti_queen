@@ -13,7 +13,7 @@ public class RunTabou {
         Tabou tabou = new Tabou(n, 1000000000, n, queens);
         System.out.println(tabou.getQueens());
         long timeStart = System.nanoTime();
-        tabou.opimisation();
+        tabou.optimisation();
         long timeEnd = System.nanoTime();
         System.out.println(tabou.getIteration() + " itérations");
         System.out.println(Math.round((timeEnd - timeStart)*Math.pow(10, -6)) +"ms");

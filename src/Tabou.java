@@ -47,7 +47,7 @@ public class Tabou extends MOptimisation {
         }while ((C.size() > 0) && (this.getIteration() < this.getIterationMax()) && (this.getfMin() > 0));
     }*/
 
-    public void opimisation(){
+    public void optimisation(){
         ArrayList<Couple> C = new ArrayList<>();
         int newF;
         ArrayList<Integer> newQ;
