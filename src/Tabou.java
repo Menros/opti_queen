@@ -13,7 +13,7 @@ public class Tabou extends MOptimisation {
         this.T = new ArrayList<Couple>();
     }
 
-    public void opimisation(){
+    public void optimisation(){
         ArrayList<Couple> C = new ArrayList<>();
         int newF;
         ArrayList<Integer> newQ;

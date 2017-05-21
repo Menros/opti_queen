@@ -27,7 +27,7 @@ public class RunTabou {
             Tabou tabou = new Tabou(n, iterationMax, tabouSize, queens);
 
             long timeStart = System.currentTimeMillis();
-            tabou.opimisation();
+            tabou.optimisation();
             long timeEnd = System.currentTimeMillis();
 
             timeMoy += (timeEnd-timeStart);
