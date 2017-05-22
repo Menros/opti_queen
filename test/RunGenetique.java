@@ -6,8 +6,8 @@ import java.util.Random;
  */
 public class RunGenetique {
     public static void main(String[] args){
-        int n = 8;
-        int nbSolutions = 8;
+        int n = 20;
+        int nbSolutions = 100;
         ArrayList<ArrayList<Integer>> solutions = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < nbSolutions; i++){
@@ -17,9 +17,9 @@ public class RunGenetique {
             }
             solutions.add(solution);
         }
-        Genetique gen = new Genetique(n, 1000000000, solutions,
+        Genetique gen = new Genetique(n, 1000000, solutions,
                 1,1,1,
-                4,2,2);
+                12,5,3);
 
         long timeStart = System.nanoTime();
         gen.optimisation();
