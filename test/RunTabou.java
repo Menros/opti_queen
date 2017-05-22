@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class RunTabou {
     public static void main(String[] args) {
-        int n = 1;
+        int n = 100;
         int tabouSize = 5;
         int iterationMax = 1000;
         ArrayList<Integer> queens = new ArrayList<>();

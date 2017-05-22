@@ -7,45 +7,46 @@ import java.util.Date;
  */
 public class RunRecuitSimule {
     public static void main(String[] args) {
-        int n = 100;
-        int n1 = 40;
-        int n2 = 10;
-        int temperatureInitiale = 1;
-        double gamma = 0.1;
-        ArrayList<Integer> queens = new ArrayList<>();
-        int fitness = 0;
-        int nbTests = 1;
+        int NOMBRE_REINES = 100;
+        int N1 = NOMBRE_REINES*2;
+        int N2 = NOMBRE_REINES*2;
+        int TEMPERATURE_INITIALE = 30*NOMBRE_REINES/100;
+        double GAMMA = 0.1;
+        int NOMBRE_DE_TESTS = 100;
 
-        for (int i = 0; i < n; i++) {
+        ArrayList<Integer> queens = new ArrayList<>();
+
+        for (int i = 0; i < NOMBRE_REINES; i++) {
             queens.add(i);
         }
 
         System.out.println("-------------- Algorithm Recuit Simulé --------------");
 
+        int fitness = 0;
         long timeStart=0;
         long timeEnd=0;
         long time=0;
-        for(int z = 0 ; z < nbTests ; z++){
-            RecuitSimule recuit = new RecuitSimule(n, queens, n1, n2, temperatureInitiale, gamma);
-            System.out.println(recuit.getQueens());
-            System.out.println("Fitness début : " + recuit.getfMin());
+        long iter=0;
+        for(int z = 0 ; z < NOMBRE_DE_TESTS ; z++){
+            RecuitSimule recuit = new RecuitSimule(NOMBRE_REINES, queens, N1, N2, TEMPERATURE_INITIALE, GAMMA);
+            System.out.print("Fitness : " + recuit.getfMin());
             timeStart = System.currentTimeMillis();
             recuit.optimisation();
             timeEnd = System.currentTimeMillis();
+            System.out.println(" -> " + recuit.getfMin());
             System.out.println(recuit.getIteration() + " itérations");
-            System.out.println("Solution finale : " + recuit.getqMin());
-            System.out.println("Fitness min : " + recuit.getfMin());
             System.out.println("");
             fitness+= recuit.getfMin();
-            System.out.println("itMax = " + recuit.getIterationMax());
             time+=(timeEnd - timeStart);
+            iter+= recuit.getIteration();
         }
 
-        Date date = new Date(time/nbTests);
+        Date date = new Date(time/NOMBRE_DE_TESTS);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         System.out.println("Temps d'exécution : " + cal.get(Calendar.MINUTE) + " min " + cal.get(Calendar.SECOND) + " s " + cal.get(Calendar.MILLISECOND) + " ms");
 
-        System.out.println("Somme fitness : " + fitness);
+        System.out.println("Fitness : " + fitness/NOMBRE_DE_TESTS);
+        System.out.println("Nombre d'itérations : " + iter/NOMBRE_DE_TESTS);
     }
 }

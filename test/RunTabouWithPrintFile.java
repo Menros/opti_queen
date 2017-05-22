@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class RunTabouWithPrintFile {
     public static void main(String[] args) {
-        int n = 100;
+        int n = 50;
         int tabouSize = 5;
         int iterationMax = 200;
         ArrayList<Integer> queens = new ArrayList<>();
@@ -21,12 +21,10 @@ public class RunTabouWithPrintFile {
 
         try{
             PrintWriter writer = new PrintWriter("test.csv", "UTF-8");
-            writer.println("n;temps;iterations;fitness");
+            writer.println("tabou;temps;iterations;fitness");
 
-            for(n = 1 ; n <= 100 ; n++){
-                System.out.println("Pour : " + n);
-
-                tabouSize = n;
+            for(tabouSize = 1 ; tabouSize <= 50 ; tabouSize++){
+                System.out.println("Pour : " + tabouSize);
 
                 long timeMoy = 0;
                 int fitnessMoy = 0;
@@ -57,7 +55,7 @@ public class RunTabouWithPrintFile {
                 System.out.println("nombre d'itérations moyen : " + iterationMoy);
                 System.out.println("fitness moyenne : " + fitnessMoy);
 
-                writer.println(n + ";" + timeMoy + ";" + iterationMoy + ";" + fitnessMoy);
+                writer.println(tabouSize + ";" + timeMoy + ";" + iterationMoy + ";" + fitnessMoy);
                 System.out.println("");
                 System.out.println("");
             }
