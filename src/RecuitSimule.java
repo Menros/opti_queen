@@ -24,8 +24,9 @@ public class RecuitSimule extends MOptimisation {
         int fitnessVoisin;
         Random rand = new Random();
 
-        for(int k = 0 ; k <= this.maxNbTemperatures ; k++){
+        for(int k = 0 ; k < this.maxNbTemperatures ; k++){
             for(int l = 1 ; l <= this.iterationMaxTemperature ; l++){
+                this.setIteration(this.getIteration() + 1);
                 voisin = this.getRandomVoisin();
 
                 fitnessVoisin = this.fitness(voisin);
@@ -36,7 +37,7 @@ public class RecuitSimule extends MOptimisation {
                     if(fitnessVoisin < this.getfMin()){
                         this.setfMin(fitnessVoisin);
                         this.setqMin(voisin);
-                        if(getfMin() == 0) return;
+                        if(this.getfMin() == 0) return;
                     }
                 }
                 else{
@@ -44,7 +45,6 @@ public class RecuitSimule extends MOptimisation {
                         this.setQueens(voisin);
                     else this.setQueens(this.getQueens());
                 }
-                this.setIteration(this.getIteration() + 1);
             }
             this.temperature = this.gamma * this.temperature;
         }

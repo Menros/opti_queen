@@ -21,12 +21,22 @@ public class Tabou extends MOptimisation {
         Couple c;
 
         do{
+            C = new ArrayList<>();
             for (int i = 0; i < getSize(); i++){
                 for (int j = i+1; j < this.getSize(); j++){
-                    C.add(new Couple(i, j));
+                    Couple cp = new Couple(i, j);
+                    boolean test = false;
+                    if(!T.isEmpty()) {
+                        for (Couple m : T) {
+                            if (cp.equals(m)){
+                                test = true;
+                            }
+                        }
+                        if(!test) C.add(cp);
+                    }
+                    else C.add(cp);
                 }
             }
-            C.removeAll(T);
 
             if (C.size() > 0){
                 //choix du meilleur voisin
@@ -51,8 +61,7 @@ public class Tabou extends MOptimisation {
                     if (T.size() > Tsize)
                         T.remove(0);
                 }
-
-                if (newF < this.getfMin()){
+                else{
                     this.setfMin(newF);
                     this.setqMin(newQ);
                 }

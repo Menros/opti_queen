@@ -9,11 +9,11 @@ import java.util.Date;
  */
 public class RunTabouWithPrintFile {
     public static void main(String[] args) {
-        int n = 50;
+        int n = 100;
         int tabouSize = 5;
-        int iterationMax = 10000;
+        int iterationMax = 200;
         ArrayList<Integer> queens = new ArrayList<>();
-        int nbTests = 2;
+        int nbTests = 1;
 
         for (int i = 1; i <= n; i++){
             queens.add(i);
@@ -23,10 +23,10 @@ public class RunTabouWithPrintFile {
             PrintWriter writer = new PrintWriter("test.csv", "UTF-8");
             writer.println("n;temps;iterations;fitness");
 
-            for(n = 8 ; n <= 40 ; n++){
+            for(n = 1 ; n <= 100 ; n++){
                 System.out.println("Pour : " + n);
 
-//                tabouSize = n;
+                tabouSize = n;
 
                 long timeMoy = 0;
                 int fitnessMoy = 0;
