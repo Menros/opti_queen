@@ -37,12 +37,12 @@ public class Genetique extends MOptimisation {
     }
 
     public void optimisation(){
-        ArrayList<ArrayList<Integer>> newSolutions = new ArrayList<ArrayList<Integer>>();
         if (solutionsSize % (poidsSelection + poidsCroisement + poidsMutation) != 0){
             System.out.println("taille de la liste des solutions non divisible par la somme des poids");
             return;
         }
         do{
+            ArrayList<ArrayList<Integer>> newSolutions = new ArrayList<ArrayList<Integer>>();
             switch(typeSelection){
                 case 1:
                     newSolutions.addAll(selectionMeilleurs());
@@ -66,7 +66,7 @@ public class Genetique extends MOptimisation {
             solutions = newSolutions;
             setMinGen();
             this.setIteration(this.getIteration() + 1);
-            System.out.println(getIteration() + " " + getfMin() + " " + getqMin());
+            System.out.println(getIteration() + " " + solutions.size() + " " + getfMin() + " " + getqMin());
 
         }while ((this.getIteration() < this.getIterationMax()) && (this.getfMin() > 0));
     }
@@ -147,13 +147,13 @@ public class Genetique extends MOptimisation {
                 j = random.nextInt(solutions.size());
             }
 
-            int coupure = random.nextInt(this.getSize() - 2) + 1;
+            int coupure = random.nextInt(this.getSize() - 1) + 1;
 
             ArrayList<Integer> newSolution = new ArrayList<Integer>();
             for (int k = 0; k < coupure; k++){
                 newSolution.add(solutions.get(i).get(k));
             }
-            for (int k = 0; k < this.getSize(); k++){
+            for (int k = coupure; k < this.getSize(); k++){
                 newSolution.add(solutions.get(i).get(k));
             }
 
